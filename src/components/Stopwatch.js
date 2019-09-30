@@ -5,7 +5,7 @@ import './stopwatch.css';
 class Stopwatch extends Component{
   
   state = {
-    status: true,
+    status: false,
     runningTime: 0
   };
 
@@ -16,8 +16,8 @@ class Stopwatch extends Component{
         clearInterval(this.incrementer);
       } else {
         this.incrementer = setInterval(function () {
-          this.setState({
-            runningTime:(this.state.runningTime + 1)
+          _this.setState({
+            runningTime:(_this.state.runningTime + 1)
           });
         }, 1000)
       }
@@ -49,7 +49,7 @@ class Stopwatch extends Component{
       <div>
         <div class="odometer"> {this.getHours()} : {this.getMinutes()} : {this.getSeconds()} </div>
         <div class="buttonFields">
-          <button type="button" onClick={this.handleClick} > {status ? 'Start' : 'Stop'} </button>
+          <button type="button" onClick={this.handleClick} > {status ? 'Stop' : 'Start'} </button>
           <button onClick={this.handleReset} > Reset </button>
         </div>
       </div>
